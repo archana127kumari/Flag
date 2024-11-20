@@ -1,0 +1,361 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Tooltip for ba-tax-savingcal-tooltip</title>
+<style>
+    /* Styling for the tooltip */
+    .circle-container {
+        /* position: relative;
+        display: inline-block;
+        cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+        /* margin: 10px; */ 
+
+        border: 1.8px solid #003512;
+    border-radius: 50%;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    padding: 5.133px 5.533px 5.533px 5.133px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    margin-right: 20px;
+    margin-top: 30px;
+    
+    position:absolute;
+        right: 16px;
+
+    }
+    
+    .circle-container .ba-tax-savingcal-tooltip-text {
+        visibility: hidden;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Position above the element */
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        width: 200px; /* Adjust width as needed */
+    }
+    
+    .circle-container .ba-tax-savingcal-tooltip-text::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+    }
+    
+    /* Show the tooltip on click */
+    .circle-container.active .ba-tax-savingcal-tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+</head>
+<body> Example circle-container with custom tooltip -->
+<!-- <div class="circle-container" id="ba-tax-savingcal-tooltip">
+    <p>a</p>
+    <span class="ba-tax-savingcal-tooltip-text">Enter the expected net income (total revenue minus total expenses) of your business for the year.</span>
+</div><br><br>
+<div class="circle-container ba-tax-savingcal-tooltip-textbox2">
+               
+    <span class="ba-tax-savingcal-tooltip-text-textbox2">As an S Corp, you’ll be required to pay yourself a
+      salary for the year, just like you would pay an employee. Determining a reasonable salary depends on a
+      number of factors, but between 40% and 60% of net profits is average. Enter the salary amount you
+      would expect to pay yourself for the year as an S Corp, or use the calculator default of 60%. For more
+      information, 
+       <a href=" https://www.blockadvisors.com/resource-center/small-business-tax-prep/s-corp-taxes/" target="_blank"><u class="business-tooltip-link">see this article</u></a>
+      
+      </span>
+
+  </div>
+
+  <br><br>
+  
+  <div class="circle-container ba-tax-savingcal-tooltip-textbox3">
+                
+    <span class="ba-tax-savingcal-tooltip-text-textbox3">If you also have a 9-5 job, enter any additional W2
+      income for the year.</span>
+
+  </div>
+
+
+  <br><br>
+
+  <div class="circle-container ba-tax-savingcal-tooltip-textbox4">
+    <span class="ba-tax-savingcal-tooltip-textbox4-text">If you’ve had Social Security withheld from your
+      other W2 income, enter it here. Typically 7.65% of income is withheld up to $168,600. </span>
+  </div>
+
+  <br><br>
+
+  <div class="circle-container ba-tax-savingcal-tooltip-textbox-5">
+    <span class="ba-tax-savingcal-tooltip-text-textbox-5">Enter any additional expected self-employed income
+      for the year. For example, if you earned rental income from a vacation property.</span>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var tooltipContainer = document.getElementById('ba-tax-savingcal-tooltip');
+    
+    // Toggle the active class on click to show/hide the tooltip
+    tooltipContainer.addEventListener('click', function(event) {
+        // Close all tooltips except the clicked one
+        closeOtherTooltips(tooltipContainer);
+        
+        // Toggle the active class on the clicked tooltip
+        this.classList.toggle('active');
+        
+        event.stopPropagation(); // Prevents the event from bubbling up
+    });
+    
+    // Function to close all tooltips except the specified one
+    function closeOtherTooltips(currentTooltip) {
+        var tooltips = document.querySelectorAll('.circle-container');
+        tooltips.forEach(function(tooltip) {
+            if (tooltip !== currentTooltip && tooltip.classList.contains('active')) {
+                tooltip.classList.remove('active');
+            }
+        });
+    }
+    
+    // Close all tooltips when clicking outside of any tooltip
+    document.addEventListener('click', function(event) {
+        var tooltips = document.querySelectorAll('.circle-container');
+        tooltips.forEach(function(tooltip) {
+            if (!tooltip.contains(event.target)) {
+                tooltip.classList.remove('active');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>  --> 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Tooltips for Various circle-containers</title>
+<style>
+    /* Styling for the tooltip */
+    .circle-container {
+       
+
+        border: 1.8px solid #003512;
+    border-radius: 50%;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    padding: 5.133px 5.533px 5.533px 5.133px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    margin-right: 20px;
+    margin-top: 30px;
+    
+    position:absolute;
+        right: 16px;
+    }
+    
+    .circle-container .ba-tax-savingcal-tooltip-text,
+    .circle-container .ba-tax-savingcal-tooltip-text-textbox2,
+    .circle-container .ba-tax-savingcal-tooltip-text-textbox3,
+    .circle-container .ba-tax-savingcal-tooltip-textbox4-text,
+    .circle-container .ba-tax-savingcal-tooltip-text-textbox-5 {
+        /* visibility: hidden;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Position above the element */
+        /* left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        width: 250px; Adjust width as needed */
+
+        visibility: hidden;
+  padding: 5px 5px 5px 5px;
+  width: 213px;
+  height: auto;
+  color: #f6f4e9;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  background-color: black;
+
+  font-family: Graphik;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.12px;
+
+  position: absolute;
+  /* opacity: 0.2; */
+  top: 100%;
+  left: 50%;
+  transform: translate(-135px, -110px);
+  border-radius: 8px;
+
+
+    }
+    
+    .circle-container .ba-tax-savingcal-tooltip-text::after,
+    .circle-container .ba-tax-savingcal-tooltip-text-textbox2::after,
+    .circle-container .ba-tax-savingcal-tooltip-text-textbox3::after,
+    .circle-container .ba-tax-savingcal-tooltip-textbox4-text::after,
+    .circle-container .ba-tax-savingcal-tooltip-text-textbox-5::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+    }
+    
+    /* Show the tooltip on click */
+    .circle-container.active .ba-tax-savingcal-tooltip-text,
+    .circle-container.active .ba-tax-savingcal-tooltip-text-textbox2,
+    .circle-container.active .ba-tax-savingcal-tooltip-text-textbox3,
+    .circle-container.active .ba-tax-savingcal-tooltip-textbox4-text,
+    .circle-container.active .ba-tax-savingcal-tooltip-text-textbox-5 {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+<!-- Example circle-containers with custom tooltips -->
+<div class="circle-container ba-tax-savingcal-tooltip-textbox1" id="ba-tax-savingcal-tooltip">
+    <p>a</p>
+    <span class="ba-tax-savingcal-tooltip-text">Enter the expected net income (total revenue minus total expenses) of your business for the year.</span>
+</div>
+
+<br><br><br>
+
+<div class="circle-container ba-tax-savingcal-tooltip-textbox2" id="ba-tax-savingcal-tooltip">
+    <p>b</p>
+    <span class="ba-tax-savingcal-tooltip-text-textbox2">As an S Corp, you’ll be required to pay yourself a salary for the year, just like you would pay an employee. Determining a reasonable salary depends on a number of factors, but between 40% and 60% of net profits is average. Enter the salary amount you would expect to pay yourself for the year as an S Corp, or use the calculator default of 60%. For more information, <a href="https://www.blockadvisors.com/resource-center/small-business-tax-prep/s-corp-taxes/" target="_blank"><u class="business-tooltip-link">see this article</u></a>.</span>
+</div>
+<br><br><br>
+
+<div class="circle-container ba-tax-savingcal-tooltip-textbox3" id="ba-tax-savingcal-tooltip">
+    <p>c</p>
+    <span class="ba-tax-savingcal-tooltip-text-textbox3">If you also have a 9-5 job, enter any additional W2 income for the year.</span>
+</div>
+<br><br><br>
+
+<div class="circle-container ba-tax-savingcal-tooltip-textbox4" id="ba-tax-savingcal-tooltip">
+    <p>d</p>
+    <span class="ba-tax-savingcal-tooltip-textbox4-text">If you’ve had Social Security withheld from your other W2 income, enter it here. Typically 7.65% of income is withheld up to $168,600.</span>
+</div>
+<br><br><br>
+
+<div class="circle-container ba-tax-savingcal-tooltip-textbox-5" id="ba-tax-savingcal-tooltip">
+    <p>e</p>
+    <span class="ba-tax-savingcal-tooltip-text-textbox-5">Enter any additional expected self-employed income for the year. For example, if you earned rental income from a vacation property.</span>
+</div>
+
+<!-- <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var tooltips = document.querySelectorAll('.circle-container');
+    
+    tooltips.forEach(function(tooltip) {
+        tooltip.addEventListener('click', function(event) {
+            // Close all tooltips except the clicked one
+            closeOtherTooltips(tooltip);
+            
+            // Toggle the active class on the clicked tooltip
+            this.classList.toggle('active');
+            
+            event.stopPropagation(); // Prevents the event from bubbling up
+        });
+    });
+    
+    // Function to close all tooltips except the specified one
+    function closeOtherTooltips(currentTooltip) {
+        tooltips.forEach(function(tooltip) {
+            if (tooltip !== currentTooltip && tooltip.classList.contains('active')) {
+                tooltip.classList.remove('active');
+            }
+        });
+    }
+    
+    // Close all tooltips when clicking outside of any tooltip
+    document.addEventListener('click', function(event) {
+        tooltips.forEach(function(tooltip) {
+            if (!tooltip.contains(event.target)) {
+                tooltip.classList.remove('active');
+            }
+        });
+    });
+});
+</script> -->
+
+
+
+<script>
+    $(document).ready(function() {
+        var tooltips = $('.circle-container');
+        
+        tooltips.on('click', function(event) {
+            var currentTooltip = $(this);
+            
+            // Close all tooltips except the clicked one
+            closeOtherTooltips(currentTooltip);
+            
+            // Toggle the active class on the clicked tooltip
+            currentTooltip.toggleClass('active');
+            
+            event.stopPropagation(); // Prevents the event from bubbling up
+        });
+        
+        // Function to close all tooltips except the specified one
+        function closeOtherTooltips(currentTooltip) {
+            tooltips.each(function() {
+                if (!$(this).is(currentTooltip) && $(this).hasClass('active')) {
+                    $(this).removeClass('active');
+                }
+            });
+        }
+        
+        // Close all tooltips when clicking outside of any tooltip
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('.circle-container').length) {
+                tooltips.removeClass('active');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
+
